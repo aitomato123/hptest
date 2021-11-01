@@ -1,0 +1,106 @@
+{% extends 'layout.html' %}
+
+
+{#title#}
+
+{% block css %}
+    <meta name="robots" content="nofollow">
+    <meta http-equiv="x-ua-compatible" content="IE=8">
+    <link rel="stylesheet" href="/statics/css/layui.css" media="all">
+    <link rel="stylesheet" href="/statics/css/dt-icon.css" media="all">
+    <link rel="stylesheet" href="/statics/css/app.css" media="all">
+    <link rel="stylesheet" href="/statics/css/default.css" media="all" id="skin" glui-skin="">
+    <script type="text/javascript">window.onerror = function () {
+        return true;
+    }</script>
+    <script type="text/javascript" src="/statics/js/lang.js"></script>
+    <script type="text/javascript" src="/statics/js/config.js"></script>
+    <!--[if lte IE 9]><!-->
+    <script type="text/javascript" src="/statics/js/jquery-1.5.2.min.js"></script>
+    <!--<![endif]-->
+    <!--[if (gte IE 10)|!(IE)]><!-->
+    <script type="text/javascript" src="/statics/js/jquery-2.1.1.min.js"></script>
+    <!--<![endif]-->
+    <script type="text/javascript" src="/statics/js/common.js"></script>
+    <script type="text/javascript" src="/statics/js/guanli.js"></script>
+    <script type="text/javascript" src="/statics/js/member.js"></script>
+    <style>
+        .layui-top-box {
+            padding: 40px 20px 20px 20px;
+            color: #fff
+        }
+
+        .panel {
+            margin-bottom: 17px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+        }
+
+        .panel-body {
+            padding: 15px
+        }
+
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 14px;
+            color: inherit
+        }
+
+        .label {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+            margin-top: .3em;
+        }
+
+        .layui-red {
+            color: red
+        }
+
+        .main_btn > p {
+            height: 40px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+<div class="layui-body-content">
+    <div class="admin-login-background">
+        <div class="layui-form login-form">
+            <form action="/fun21_addsampletype/" method="POST" class="layui-form">
+                {% csrf_token %}
+                <div class="layui-form-item logo-title">
+                    <h1>添加样品类型</h1>
+                </div>
+                <table>
+                    <tr>
+                        <td><div class="right, layui-form-item" style="margin-bottom:5px">请输入样品类型 ：</div></td>
+                        <td>{{ obj.sample_type }}</td>
+                    </tr>
+                </table>
+                <hr style="width: 300px;margin-top:20px;">
+                <div class="layui-form-item">
+                    <input type="submit" class="layui-btn" name="submit" value="添加">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

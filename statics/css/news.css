@@ -1,0 +1,50 @@
+.news_com{ padding:0px 0;}
+.news_lf{  padding:20px 15px; background:#fff; border-radius:5px;}
+.news_tabs{ border-bottom:1px solid #d2d2d2; overflow:hidden; padding-bottom:10px;}
+.news_tabs a{ display:inline-block; line-height:32px; font-size:16px; padding:0 20px; float:left; border-radius:1000px; margin-right:5px;}
+.news_tabs a.on,.news_tabs a:hover{ color:#fff; background:#E60012;}
+.news_list li{ overflow:hidden; border-bottom:1px dotted #e2e2e2; padding:30px 0;}
+.news_list li .imgs{ float:left; width:170px; height:120px; border-radius:3px; margin-right:20px;}
+.news_list li h3{ font-size:18px; font-weight:bold; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; height:24px; line-height:24px;}
+.news_list li h3 a{ color:#000;}
+.news_list li h4{ font-size:14px; color:#666; line-height:24px; margin:13px 0; height:48px; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical;}
+.news_list li p{ overflow:hidden; font-size:13px; color:#888; line-height:18px;}
+.news_list li p em{ float:right; font-size:13px; color:#888;}
+.news_list li p em a{ color:#5EAAE4;}
+.news_list li a:hover{ color:#E60012;}
+.news_rt{ width:260px; padding:20px 15px; background:#fff; border-radius:5px;}
+.news_rt_tit{ border-bottom:1px solid #e2e2e2; font-size:18px; color:#000; line-height:42px;}
+.news_rt_tit font{ font-size:18px; color:#E60012;}
+.news_rt1{ padding:5px 0;}
+.news_rt1 li{ height:45px; line-height:45px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%;}
+.news_rt1 li a{ font-size:13px;}
+.news_rt1 li a font{ color:#ff8900; margin-right:12px; font-size:13px;}
+.news_rt2{ padding-top:10px;}
+.news_rt2 li{ height:32px; line-height:32px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%;}
+.news_rt2 li a{ font-size:13px;}
+.news_rt3{ position:relative; margin-top:15px;}
+.news_rt3 a{ display:block;}
+.news_rt3 img{ display:block; margin:0 auto;}
+.news_rt3 em{ display:block; color:#fff; position:absolute; left:0; bottom:0; right:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; text-indent:10px; background:rgba(224,64,41,.8); line-height:32px; font-size:13px;}
+.location{ line-height:36px; padding:0 30px; border-radius:1000px; color:#fff; font-size:14px; background:#666; margin-top:20px;}
+.location a{ color:#fff;}
+.news_dt_tit{ text-align:center; border-bottom:1px dotted #ddd; padding:20px 0;}
+.news_dt_tit h3{ font-size:24px; line-height:40px;}
+.news_dt_tit p{ line-height:30px;}
+.news_dt_tit p span{ padding:0 10px; color:#575757;}
+.shares{ padding-left:324px;}
+.news_dt_con{ padding:20px;}
+.news_dt_con p{ font-size:14px; line-height:26px; text-indent:2em; margin:10px 0;}
+.news_dt_related{ padding:0 20px;}
+.news_dt_related h4{ font-size:14px; font-weight:bold; line-height:24px;}
+.news_dt_related h4 span{ font-size:14px;}
+.news_dt_related p{ line-height:21px; padding:20px 0;}
+.news_dt_related p em{ width:42px; padding-left:8px; display:inline-block; background:url(http://www.foodlims.net/member/newskin/images/tags_bg.gif) left center no-repeat; color:#fff;}
+.news_dt_related p a{ margin-right:10px; color:#666;}
+.news_related_list{ padding:0 20px;}
+.news_related_list h4{ border-bottom:1px solid #c7c7c7; line-height:36px;}
+.news_related_list h4 em{ border-bottom:1px solid #06F; padding:0 20px; font-size:18px; color:#06F; display:inline-block; bottom:-1px; position:relative;}
+.news_related_list ul{ padding:12px 20px;}
+.news_related_list ul li{ height:30px; line-height:30px;}
+.news_related_list ul li a{ font-size:14px;}
+.news_related_list ul li font{ color:#999; padding-left:20px;}

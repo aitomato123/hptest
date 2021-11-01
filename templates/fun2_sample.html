@@ -1,0 +1,108 @@
+{% extends 'layout.html' %}
+
+
+{#title#}
+
+{% block css %}
+    <meta name="robots" content="nofollow">
+    <meta http-equiv="x-ua-compatible" content="IE=8">
+    <link rel="stylesheet" href="/statics/css/layui.css" media="all">
+    <link rel="stylesheet" href="/statics/css/dt-icon.css" media="all">
+    <link rel="stylesheet" href="/statics/css/app.css" media="all">
+    <link rel="stylesheet" href="/statics/css/default.css" media="all" id="skin" glui-skin="">
+    <script type="text/javascript">window.onerror = function () {
+        return true;
+    }</script>
+    <script type="text/javascript" src="/statics/js/lang.js"></script>
+    <script type="text/javascript" src="/statics/js/config.js"></script>
+    <!--[if lte IE 9]><!-->
+    <script type="text/javascript" src="/statics/js/jquery-1.5.2.min.js"></script>
+    <!--<![endif]-->
+    <!--[if (gte IE 10)|!(IE)]><!-->
+    <script type="text/javascript" src="/statics/js/jquery-2.1.1.min.js"></script>
+    <!--<![endif]-->
+    <script type="text/javascript" src="/statics/js/common.js"></script>
+    <script type="text/javascript" src="/statics/js/guanli.js"></script>
+    <script type="text/javascript" src="/statics/js/member.js"></script>
+    <style>
+        .layui-top-box {
+            padding: 40px 20px 20px 20px;
+            color: #fff
+        }
+
+        .panel {
+            margin-bottom: 17px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+        }
+
+        .panel-body {
+            padding: 15px
+        }
+
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 14px;
+            color: inherit
+        }
+
+        .label {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+            margin-top: .3em;
+        }
+
+        .layui-red {
+            color: red
+        }
+
+        .main_btn > p {
+            height: 40px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <div class="layui-body-content">
+    <h1>样品列表</h1>
+    <div><a href="/fun2_addsample/">添加样品</a></div>
+    <div><a href="/fun21_addsampletype/">添加样品类型</a></div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <td>样品编号</td>
+            <td>样品类型</td>
+            <td>分析项目</td>
+            <td>执行标准</td>
+            <td>所属任务单号</td>
+            <td>操作</td>
+        </thead>
+        {% for row in sample_list %}
+            <tr>
+                <td>{{ row.sample_id }}</td>
+                <td>{{ row.stt.sample_type }}</td>
+                <td>{{ row.analysis_items }}</td>
+                <td>{{ row.standard_limit }}</td>
+                <td>{{ row.stp.project_id }}</td>
+                <td><a href="/fun2_editsample/{{ row.id }}/">编辑</a>|<a href="/fun2_delsample/?nid={{ row.id }}">删除</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

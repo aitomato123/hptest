@@ -1,0 +1,121 @@
+{% extends 'layout.html' %}
+
+
+{#title#}
+
+{% block css %}
+    <meta name="robots" content="nofollow">
+    <meta http-equiv="x-ua-compatible" content="IE=8">
+    <link rel="stylesheet" href="/statics/css/layui.css" media="all">
+    <link rel="stylesheet" href="/statics/css/dt-icon.css" media="all">
+    <link rel="stylesheet" href="/statics/css/app.css" media="all">
+    <link rel="stylesheet" href="/statics/css/default.css" media="all" id="skin" glui-skin="">
+    <script type="text/javascript">window.onerror = function () {
+        return true;
+    }</script>
+    <script type="text/javascript" src="/statics/js/lang.js"></script>
+    <script type="text/javascript" src="/statics/js/config.js"></script>
+    <!--[if lte IE 9]><!-->
+    <script type="text/javascript" src="/statics/js/jquery-1.5.2.min.js"></script>
+    <!--<![endif]-->
+    <!--[if (gte IE 10)|!(IE)]><!-->
+    <script type="text/javascript" src="/statics/js/jquery-2.1.1.min.js"></script>
+    <!--<![endif]-->
+    <script type="text/javascript" src="/statics/js/common.js"></script>
+    <script type="text/javascript" src="/statics/js/guanli.js"></script>
+    <script type="text/javascript" src="/statics/js/member.js"></script>
+    <style>
+        .layui-top-box {
+            padding: 40px 20px 20px 20px;
+            color: #fff
+        }
+
+        .panel {
+            margin-bottom: 17px;
+            background-color: #fff;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+        }
+
+        .panel-body {
+            padding: 15px
+        }
+
+        .panel-title {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 14px;
+            color: inherit
+        }
+
+        .label {
+            display: inline;
+            padding: .2em .6em .3em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: .25em;
+            margin-top: .3em;
+        }
+
+        .layui-red {
+            color: red
+        }
+
+        .main_btn > p {
+            height: 40px;
+        }
+    </style>
+{% endblock %}
+
+
+{% block body %}
+    <div class="layui-body-content">
+    <h1>任务列表</h1>
+    <div><a href="/fun1_addproject/">添加任务</a></div>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <td>任务单号</td>
+            <td>下单日期</td>
+            <td>委托单位</td>
+            <td>地址</td>
+            <td>项目名称</td>
+            <td>检测类型</td>
+            <td>联系人及电话</td>
+            <td>任务信息</td>
+            <td>执行标准</td>
+            <td>编辑&删除</td>
+            <td>样品交接&样品登记</td>
+        </thead>
+        {% for row in project_list %}
+            <tr>
+                <td>{{ row.project_id }}</td>
+                <td>{{ row.date }}</td>
+                <td>{{ row.client }}</td>
+                <td>{{ row.area }}</td>
+                <td>{{ row.project_name }}</td>
+                <td>{{ row.test_style }}</td>
+                <td>{{ row.contacts }}</td>
+                <td>{{ row.mission_link }}</td>
+                <td>{{ row.voluntary_standards }}</td>
+                <td><a href="/fun1_editproject/{{ row.project_id }}/">编辑</a>|
+                    <a href="/fun1_delproject/?project_id={{ row.project_id }}">删除</a>
+                </td>
+                <td><a href="/fun2_samplehandover/{{ row.project_id }}/">样品交接</a>|
+                    <a href="/fun2_sample/?nid={{ row.project_id }}">样品登记</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

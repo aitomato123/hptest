@@ -14,26 +14,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-# from django.urls import path
+from django.urls import path
 from app01 import views
 from django.conf.urls import url
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^login/', views.login),
-    url(r'^logout/', views.logout),
-    url(r'^index/', views.index),
+    path('admin/', admin.site.urls),
+    path('login/', views.login),
+    path('logout/', views.logout),
+    path('index/', views.index),
     # url(r'^layout/', views.layout),
 
-    url(r'^user/', views.user),
-    url(r'^add_user/', views.add_user),
-    url(r'^edit_user/(\d+)/', views.edit_user),
-    url(r'^del_user/', views.del_user),
+    path('user/', views.user),
+    path('add_user/', views.add_user),
+    path('edit_user/<int:nid>/', views.edit_user),
+    path('del_user/', views.del_user),
 
-    url(r'^fun1_project/', views.fun1_project),
-    url(r'^fun1_addproject/', views.fun1_addproject),
-    url(r'^fun1_editproject/(\d+)/', views.fun1_editproject),
-    url(r'^fun1_delproject/', views.fun1_delproject),
+    path('fun1_project/', views.fun1_project),
+    path('fun1_addproject/', views.fun1_addproject),
+    path('fun1_editproject/<str:project_id>/', views.fun1_editproject),
+    path('fun1_delproject/', views.fun1_delproject),
 
     # url(r'^fun2_sample/', views.fun2_sample),
     # url(r'^fun2_addsample/', views.fun2_addsample),

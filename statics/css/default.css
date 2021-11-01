@@ -1,0 +1,83 @@
+.glui-theme .layui-layout-admin .layui-logo {
+    color: #fff;color: /*rgba(255,255,255,.8);*/background-color:#243346!important;
+}
+.glui-theme .glui-layout-admin .layui-header {
+    background-color: #1aa094;
+}
+.glui-theme .layui-layout-admin .layui-header .layui-nav {
+	color: #EEE
+}
+
+.glui-theme .glui-side {
+	background-color: #2f4056!important
+}
+.glui-theme .glui-side .layui-side-scroll .layui-nav-tree {
+	background-color: #2f4056!important
+}
+.glui-theme .glui-side .layui-nav-tree .layui-nav-item {
+	background-color: #2f4056
+}
+.glui-theme .glui-side .layui-nav-tree .layui-nav-item a.layui-nav-item-title:hover {
+	background-color: #2f4056;
+	color: #EEE
+}
+.glui-theme .glui-side .layui-nav .layui-nav-item a {
+}
+.glui-theme .glui-side .layui-nav .layui-nav-itemed .layui-nav-child {
+	background-color: #rgba(0,0,0,.3)!important
+}
+.glui-theme .glui-side .layui-nav-tree .layui-nav-child dd.layui-this, .glui-theme .glui-side .layui-nav-tree .layui-nav-child dd.layui-this a, .glui-theme .glui-side .layui-nav-tree .layui-this, .glui-theme .glui-side .layui-nav-tree .layui-this>a, .glui-theme .glui-side .layui-nav-tree .layui-this>a:hover {
+	background-color: #20222A !important;
+	color: #20222A!important
+}
+.glui-theme .glui-nav .layui-this {
+	background-color: none !important
+}
+.glui-theme .glui-side .layui-side-scroll .glui-side-fold {
+	color: #aeb9c2;
+	background-color: #20222A;
+	border-top:1px #17181E solid
+}
+.glui-theme .glui-side .layui-nav-tree .layui-nav-child dd.layui-this {
+	padding-left: 3px;
+	background-color: #009688!important
+}
+.glui-theme .glui-side .layui-nav-tree .layui-nav-bar {
+	background-color: #009688!important
+}
+.glui-theme .glui-side .layui-nav-tree .layui-nav-child .side_b {
+	color: #fff!important;
+	background-color: #009688!important
+}
+.glui-side .layui-nav-tree .layui-nav-child dd:hover {
+	background-color: #20222A!important
+}
+.glui-side .layui-nav-tree .layui-nav-child a {
+	background-color: none!important
+}
+.glui-side .layui-nav-tree .layui-nav-child a:hover {
+	background-color: none!important
+}
+.glui-theme .glui-side .layui-nav-tree .layui-nav-child .side_b a {
+	color: #fff!important;
+	background-color: #009688!important
+}
+.gl-quick-menu .layui-this {
+	background-color: #FFF !important;
+}
+.nav_2 { border-bottom: #20222A 2px solid;}
+.glui-text-default { color:#009688 !important}
+.glui-bg-default {}
+#msgbox, .btn_g, .dt-bqbtn { background: #20222A!important}
+.sysNotice .layui-elem-quote { border-left: 5px solid #20222A !important;}
+.dhead { background: #20222A!important; height:30px !important; line-height:30px !important;}
+.dbody { border: #20222A 1px solid!important}
+.tab a:hover { border-bottom: 2px solid #009688 !important; margin-bottom: -2px;}
+.tab_on a:link, .tab_on a:visited, .tab_on a:active, .tab_on a:hover { font-size: 14px; text-decoration: none; display: block; height: 36px; line-height: 36px; padding: 0 20px; color: #20222A !important; border-bottom: 2px solid #009688!important; margin-bottom: -2px;}
+.tb input[type="text"]:focus, input[type="number"]:focus, .td input[type="email"]:focus, .tb input[type="password"]:focus, .td textarea:focus, .tb select:focus {
+	border: 1px solid #C9C9C9 !important;
+}
+.limit { border: 1px solid #20222A !important; background: #ECEDF0}
+.pages a:hover {background:#20222A;border:#20222A 1px solid;}
+.pages strong {background:#20222A;padding:5px 6px;border:#20222A 1px solid;}
+.pages_btn { background:#20222A;}
