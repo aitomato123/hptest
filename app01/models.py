@@ -36,12 +36,12 @@ class ProjInfo(models.Model):
         return self.project_id
 
 
-# class SampleType(models.Model):
-#     sample_type = models.CharField(max_length=20, unique=True)
-#     def __str__(self):
-#         return self.sample_type
-#
-#
+class SampleType(models.Model):
+    sample_type = models.CharField(max_length=20, unique=True)
+    def __str__(self):
+        return self.sample_type
+
+
 # class MissionInfo(models.Model):
 #     project_id = models.ForeignKey(to='ProjInfo', on_delete=CASCADE)
 #     sample_type = models.ForeignKey(to='SampleType', on_delete=CASCADE)
@@ -51,27 +51,27 @@ class ProjInfo(models.Model):
 #     sampling_of_days = models.IntegerField()
 #     test_items = models.CharField(max_length=255)
 #     status_bar = models.CharField(max_length=2)
-#
-#
-# class Storage(models.Model):
-#     storage = models.CharField(max_length=20, unique=True)
-#     def __str__(self):
-#         return self.storage
-#
-#
-# class SampleHandover(models.Model):
-#    project_id = models.ForeignKey(to='ProjInfo', on_delete=CASCADE)
-#    sample_type = models.ForeignKey(to='SampleType', on_delete=CASCADE)
-#    sample_ids = models.CharField(max_length=105)
-#    analysis_items = models.CharField(max_length=255)
-#    sample_number = models.CharField(max_length=5)
-#    storage = models.ForeignKey(to='Storage', on_delete=CASCADE)
-#    char_person = models.CharField(max_length=15)
-#    status_bar = models.CharField(max_length=2)
-#    def __str__(self):
-#        return self.sample_ids
-#
-#
+
+
+class Storage(models.Model):
+    storage = models.CharField(max_length=20, unique=True)
+    def __str__(self):
+        return self.storage
+
+
+class SampleHandover(models.Model):
+   sh_pid = models.ForeignKey(to='ProjInfo', on_delete=CASCADE)
+   sh_spt = models.ForeignKey(to='SampleType', on_delete=CASCADE)
+   sample_ids = models.CharField(max_length=105)
+   analysis_items = models.CharField(max_length=255)
+   sample_number = models.CharField(max_length=5)
+   sh_sto = models.ForeignKey(to='Storage', on_delete=CASCADE)
+   char_person = models.CharField(max_length=15)
+   status_bar = models.CharField(max_length=2)
+   def __str__(self):
+       return self.sample_ids
+
+
 # class SampleInfo(models.Model):
 #     project_id = models.ForeignKey(to='ProjInfo', on_delete=CASCADE)
 #     sample_type = models.ForeignKey(to='SampleType', on_delete=CASCADE)
@@ -87,18 +87,18 @@ class ProjInfo(models.Model):
 #         return self.sample_id
 #
 #
-# class JudgeChoose(models.Model):
-#     judge = models.CharField(max_length=10, unique=True)
-#     def __str__(self):
-#         return self.judge
-#
-#
-# class UnitChoose(models.Model):
-#     unit = models.CharField(max_length=10, unique=True)
-#     def __str__(self):
-#         return self.unit
-#
-#
+class JudgeChoose(models.Model):
+    judge = models.CharField(max_length=10, unique=True)
+    def __str__(self):
+        return self.judge
+
+
+class UnitChoose(models.Model):
+    unit = models.CharField(max_length=10, unique=True)
+    def __str__(self):
+        return self.unit
+
+
 # class ItemInfo(models.Model):
 #     project_id = models.ForeignKey(to='ProjInfo', on_delete=CASCADE)
 #     sample_id = models.ForeignKey(to='SampleInfo', on_delete=CASCADE)

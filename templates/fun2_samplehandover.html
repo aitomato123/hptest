@@ -78,8 +78,8 @@
 {% block body %}
     <div class="layui-body-content">
     <h1>样品交接列表</h1>
-    <div><a href="/fun2_addsamplehandover/{{ row.project_id }}/">添加样品</a></div>
-    <div><a href="/fun21_addsampletypehandover/{{ row.project_id }}/">添加样品类型</a></div>
+    <div><a href="/fun2_addsamplehandover/">添加交接样品</a></div>
+    <div><a href="/fun21_addsampletype/">添加样品类型</a></div>
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <td>样品类型</td>
@@ -92,13 +92,14 @@
         </thead>
         {% for row in sample_list %}
             <tr>
-                <td>{{ row.sample_type.sample_type }}</td>
+                <td>{{ row.sh_spt.sample_type }}</td>
                 <td>{{ row.sample_ids }}</td>
                 <td>{{ row.analysis_items }}</td>
-                <td>{{ row.sample_num }}</td>
-                <td>{{ row.storage }}</td>
+                <td>{{ row.sample_number }}</td>
+                <td>{{ row.sh_sto.storage }}</td>
                 <td>{{ row.char_person }}</td>
-                <td><a href="/fun2_editsamplehandover/{{ row.id }}/">编辑</a>|<a href="/fun2_delsamplehandover/?nid={{ row.id }}">删除</a></td>
+                <td><a href="/fun2_editsamplehandover/{{ row.sample_ids }}/">编辑</a>|
+                    <a href="/fun2_delsamplehandover/?nid={{ row.sample_ids }}">删除</a></td>
             </tr>
         {% endfor %}
     </table>

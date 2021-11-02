@@ -23,7 +23,7 @@ urlpatterns = [
     path('login/', views.login),
     path('logout/', views.logout),
     path('index/', views.index),
-    # url(r'^layout/', views.layout),
+    # path('layout/', views.layout),
 
     path('user/', views.user),
     path('add_user/', views.add_user),
@@ -35,18 +35,23 @@ urlpatterns = [
     path('fun1_editproject/<str:project_id>/', views.fun1_editproject),
     path('fun1_delproject/', views.fun1_delproject),
 
-    # url(r'^fun2_sample/', views.fun2_sample),
-    # url(r'^fun2_addsample/', views.fun2_addsample),
-    # url(r'^fun2_editsample/(\d+)/', views.fun2_editsample),
-    # url(r'^fun2_delsample/', views.fun2_delsample),
-    #
-    # url(r'^fun21_sampletype/', views.fun21_sampletype),
-    # url(r'^fun21_addsampletype/', views.fun21_addsampletype),
-    # url(r'^fun21_editsampletype/(\d+)/', views.fun21_editsampletype),
-    # url(r'^fun21_delsampletype/', views.fun21_delsampletype),
-    #
-    # url(r'^fun3_result/', views.fun3_result),
-    # url(r'^fun3_addresult/', views.fun3_addresult),
-    # url(r'^fun3_editresult/(\d+)/', views.fun3_editresult),
-    # url(r'^fun3_delresult/', views.fun3_delresult),
+    path('fun2_samplehandover/', views.fun2_samplehandover),
+    path('fun2_addsamplehandover/', views.fun2_addsamplehandover),
+    path('fun2_editsamplehandover/<str:project_id>/', views.fun2_editsamplehandover),
+    path('fun2_delsamplehandover/', views.fun2_delsamplehandover),
+
+    # path('fun2_sample/', views.fun2_sample),
+    # path('fun2_addsample/', views.fun2_addsample),
+    # path('fun2_editsample/<str:project_id>/', views.fun2_editsample),
+    # path('fun2_delsample/', views.fun2_delsample),
+
+    path('fun21_sampletype/', views.fun21_sampletype),
+    path('fun21_addsampletype/', views.fun21_addsampletype),
+    path('fun21_editsampletype/<str:project_id>/', views.fun21_editsampletype),
+    path('fun21_delsampletype/', views.fun21_delsampletype),
+
+    # path('fun3_result/', views.fun3_result),
+    # path('fun3_addresult/', views.fun3_addresult),
+    # path('fun3_editresult/<str:project_id>/', views.fun3_editresult),
+    # path('fun3_delresult/', views.fun3_delresult),
 ]

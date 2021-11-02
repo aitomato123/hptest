@@ -77,31 +77,43 @@
 
 {% block body %}
     <div class="layui-body-content">
-        <form action="/fun2_addsample/" method="POST" class="form-horizontal">
+        <form action="/fun2_addsamplehandover/" method="POST" class="form-horizontal">
             {% csrf_token %}
             <div class="layui-form-item logo-title">
-                <h1>添加样品</h1>
+                <h1>添加交样信息</h1>
             </div>
             <table class="table table-striped table-bordered">
                 <tr>
-                    <td><div class="right, layui-form-item" style="margin-bottom:5px">样品编号 ：</div></td>
-                    <td>{{ obj.sample_id }}</td>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">任务单号 ：</div></td>
+                    <td>{{ obj.sh_pid_id }}</td>
                 </tr>
                 <tr>
                     <td><div class="right, layui-form-item" style="margin-bottom:5px">样品类型 ：</div></td>
-                    <td>{{ obj.stt_id }}</td>
+                    <td>{{ obj.sh_spt_id }}</td>
+                </tr>
+                <tr>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">样品编号 ：</div></td>
+                    <td>{{ obj.sample_ids }}</td>
                 </tr>
                 <tr>
                     <td><div class="right, layui-form-item" style="margin-bottom:5px">分析项目 ：</div></td>
                     <td>{{ obj.analysis_items }}</td>
                 </tr>
                 <tr>
-                    <td><div class="right, layui-form-item" style="margin-bottom:5px">执行标准 ：</div></td>
-                    <td>{{ obj.standard_limit }}</td>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">样品数量 ：</div></td>
+                    <td>{{ obj.sample_number }}</td>
                 </tr>
                 <tr>
-                    <td><div class="right, layui-form-item" style="margin-bottom:5px">所属任务单号 ：</div></td>
-                    <td>{{ obj.stp_id }}</td>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">保存方法 ：</div></td>
+                    <td>{{ obj.sh_sto_id }}</td>
+                </tr>
+                <tr>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">领用人 ：</div></td>
+                    <td>{{ obj.char_person }}</td>
+                </tr>
+                <tr>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">状态栏 ：</div></td>
+                    <td>{{ obj.status_bar }}</td>
                 </tr>
             </table>
             <hr style="width: 300px;margin-top:20px;">
