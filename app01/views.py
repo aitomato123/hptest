@@ -257,7 +257,7 @@ class SampleHandoverForm(Form):
 def fun2_samplehandover(request):
     username = request.session.get("username")
     if username:
-        sample_list = models.SampleHandover.objects.all()
+        sample_list = models.SampleHandover.objects.all().order_by('sample_ids')
         return render(request, "fun2_samplehandover.html", {"username": username, "sample_list": sample_list})
     else:
         return redirect("/login/")
@@ -279,7 +279,7 @@ def fun2_addsamplehandover(request):
 @auth
 def fun2_editsamplehandover(request, sample_ids):
     if request.method == "GET":
-        row = models.SampleHandover.objects.filter(id=sample_ids).values('sh_pid_id','sh_spt_id', 'sample_ids', 'analysis_items',
+        row = models.SampleHandover.objects.filter(sample_ids=sample_ids).values('sh_pid_id','sh_spt_id', 'sample_ids', 'analysis_items',
                                                               'sample_number', 'sh_sto_id','char_person','status_bar').first()
         # 让页面显示初始值
         obj = SampleHandoverForm(initial=row)
@@ -287,71 +287,88 @@ def fun2_editsamplehandover(request, sample_ids):
     else:
         obj = SampleHandoverForm(request.POST)
         if obj.is_valid():
-            models.SampleHandover.objects.filter(id=sample_ids).update(**obj.cleaned_data)
+            models.SampleHandover.objects.filter(sample_ids=sample_ids).update(**obj.cleaned_data)
             return redirect('/fun2_samplehandover/')
         return render(request, 'fun2_editsamplehandover.html', {'sample_ids': sample_ids, 'obj': obj})
 
 
 @auth
-def fun2_delsamplehandover(request):
-    nid = request.GET.get('sample_ids')
-    models.SampleHandover.objects.filter(id=nid).delete()
-    return redirect('/fun2_sample/')
+def fun2_delsamplehandover(request, sample_ids):
+    # nid = request.GET.get('sample_ids')
+    if request.method == "GET":
+        models.SampleHandover.objects.filter(sample_ids=sample_ids).delete()
+        return redirect('/fun2_samplehandover/')
+    else:
+        return redirect('/fun2_samplehandover/')
 
 
-# class SampleForm(Form):
-#     sample_id = fields.CharField(max_length=20, widget=widgets.TextInput(attrs={'class': 'form-control'}))
-#     stt_id = fields.IntegerField(
-#         widget=widgets.Select(choices=models.SampleType.objects.values_list('id', 'sample_type'),
-#                               attrs={'class': 'form-control'})
-#     )
-#     analysis_items = fields.CharField(max_length=220, widget=widgets.TextInput(attrs={'class': 'form-control'}))
-#     standard_limit = fields.CharField(max_length=120, widget=widgets.TextInput(attrs={'class': 'form-control'}))
-#     stp_id = fields.IntegerField(
-#         widget=widgets.Select(choices=models.ProjInfo.objects.values_list('id', 'project_id'),
-#                               attrs={'class': 'form-control'})
-#     )
-#
-#
-# @auth
-# def fun2_sample(request):
-#     username = request.session.get("username")
-#     if username:
-#         sample_list = models.SampleInfo.objects.all()
-#         return render(request, "fun2_sample.html", {"username": username, "sample_list": sample_list})
-#     else:
-#         return redirect("/login/")
-#
-#
-# @auth
-# def fun2_addsample(request):
-#     if request.method == "GET":
-#         obj = SampleForm()
-#         return render(request, 'fun2_addsample.html', {'obj': obj})
-#     else:
-#         obj = SampleForm(request.POST)
-#         if obj.is_valid():
-#             models.SampleInfo.objects.create(**obj.cleaned_data)
-#             return redirect('/fun2_sample/')
-#         return render(request, 'fun2_addsample.html', {'obj': obj})
-#
-#
-# @auth
-# def fun2_editsample(request, nid):
-#     if request.method == "GET":
-#         row = models.SampleInfo.objects.filter(id=nid).values('sample_id', 'stt_id', 'analysis_items',
-#                                                               'standard_limit', 'stp_id').first()
-#         # 让页面显示初始值
-#         obj = SampleForm(initial=row)
-#         return render(request, 'fun2_editsample.html', {'nid': nid, 'obj': obj})
-#     else:
-#         obj = SampleForm(request.POST)
-#         if obj.is_valid():
-#             models.SampleInfo.objects.filter(id=nid).update(**obj.cleaned_data)
-#             return redirect('/fun2_sample/')
-#         return render(request, 'fun2_editsample.html', {'nid': nid, 'obj': obj})
-#
-#
+class SampleForm(Form):
+    si_pid_id = fields.IntegerField(
+        widget=widgets.Select(choices=models.ProjInfo.objects.values_list('id', 'project_id'),
+                              attrs={'class': 'form-control'})
+    )
+    si_spt_id = fields.IntegerField(
+        widget=widgets.Select(choices=models.SampleType.objects.values_list('id', 'sample_type'),
+                              attrs={'class': 'form-control'})
+    )
+    sample_id = fields.CharField(max_length=20, widget=widgets.TextInput(attrs={'class': 'form-control'}))
+    sampling_position = fields.CharField(max_length=20, widget=widgets.TextInput(attrs={'class': 'form-control'}))
+    coordinate = fields.CharField(max_length=30, widget=widgets.TextInput(attrs={'class': 'form-control'}))
+    analysis_items = fields.CharField(max_length=255, widget=widgets.TextInput(attrs={'class': 'form-control'}))
+    sampling_date = fields.CharField(max_length=20, widget=widgets.TextInput(attrs={'class': 'form-control'}))
+    sampling_of_days = fields.CharField(max_length=2, widget=widgets.TextInput(attrs={'class': 'form-control'}))
+    sample_traits = fields.CharField(max_length=50, widget=widgets.TextInput(attrs={'class': 'form-control'}))
+    status_bar = fields.CharField(max_length=2, widget=widgets.TextInput(attrs={'class': 'form-control'}))
+
+
+@auth
+def fun2_sample(request):
+    username = request.session.get("username")
+    if username:
+        sample_list = models.SampleInfo.objects.all()
+        return render(request, "fun2_sample.html", {"username": username, "sample_list": sample_list})
+    else:
+        return redirect("/login/")
+
+
+@auth
+def fun2_addsample(request):
+    if request.method == "GET":
+        obj = SampleForm()
+        return render(request, 'fun2_addsample.html', {'obj': obj})
+    else:
+        obj = SampleForm(request.POST)
+        if obj.is_valid():
+            models.SampleInfo.objects.create(**obj.cleaned_data)
+            return redirect('/fun2_sample/')
+        return render(request, 'fun2_addsample.html', {'obj': obj})
+
+
+@auth
+def fun2_editsample(request, sample_id):
+    if request.method == "GET":
+        row = models.SampleInfo.objects.filter(sample_id=sample_id).values('si_pid_id', 'si_spt_id', 'sample_id',
+                                                              'sampling_position', 'coordinate','analysis_items','sampling_date','sampling_of_days','sample_traits','status_bar').first()
+        # 让页面显示初始值
+        obj = SampleForm(initial=row)
+        return render(request, 'fun2_editsample.html', {'sample_id': sample_id, 'obj': obj})
+    else:
+        obj = SampleForm(request.POST)
+        if obj.is_valid():
+            models.SampleInfo.objects.filter(sample_id=sample_id).update(**obj.cleaned_data)
+            return redirect('/fun2_sample/')
+        return render(request, 'fun2_editsample.html', {'nid': sample_id, 'obj': obj})
+
+@auth
+def fun2_delsample(request, sample_id):
+    if request.method == "GET":
+        models.SampleInfo.objects.filter(sample_id=sample_id).delete()
+        return redirect('/fun2_sample/')
+    else:
+        return redirect('/fun2_sample/')
+
+
+
 # @auth
 # def fun2_delsample(request):
 #     nid = request.GET.get('nid')

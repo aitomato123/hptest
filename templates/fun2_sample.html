@@ -78,25 +78,35 @@
 {% block body %}
     <div class="layui-body-content">
     <h1>样品列表</h1>
-    <div><a href="/fun2_addsample/">添加样品</a></div>
-    <div><a href="/fun21_addsampletype/">添加样品类型</a></div>
+    <div><a href="/fun2_addsample/" class="layui-form-item layui-btn">添加样品</a>
+        <a href="/fun21_addsampletype/" class="layui-form-item layui-btn">添加样品类型</a>
+    </div>
     <table class="table table-striped table-bordered table-hover">
         <thead>
-            <td>样品编号</td>
+            <td>任务单号</td>
             <td>样品类型</td>
+            <td>样品编号</td>
+            <td>采样位置</td>
+            <td>经纬度</td>
             <td>分析项目</td>
-            <td>执行标准</td>
-            <td>所属任务单号</td>
+            <td>采样日期</td>
+            <td>采样频次</td>
+            <td>样品性状</td>
             <td>操作</td>
         </thead>
         {% for row in sample_list %}
             <tr>
+                <td>{{ row.si_pid.project_id }}</td>
+                <td>{{ row.si_spt.sample_type }}</td>
                 <td>{{ row.sample_id }}</td>
-                <td>{{ row.stt.sample_type }}</td>
+                <td>{{ row.sampling_position }}</td>
+                <td>{{ row.coordinate }}</td>
                 <td>{{ row.analysis_items }}</td>
-                <td>{{ row.standard_limit }}</td>
-                <td>{{ row.stp.project_id }}</td>
-                <td><a href="/fun2_editsample/{{ row.id }}/">编辑</a>|<a href="/fun2_delsample/?nid={{ row.id }}">删除</a></td>
+                <td>{{ row.sampling_date }}</td>
+                <td>{{ row.sampling_of_days }}</td>
+                <td>{{ row.sample_traits }}</td>
+                <td><a href="/fun2_editsample/{{ row.sample_id }}/" class="layui-form-item layui-btn">编辑</a>
+                    <a href="/fun2_delsample/{{ row.sample_id }}" class="layui-form-item layui-btn">删除</a></td>
             </tr>
         {% endfor %}
     </table>

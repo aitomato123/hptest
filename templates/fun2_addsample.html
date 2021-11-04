@@ -84,24 +84,44 @@
             </div>
             <table class="table table-striped table-bordered">
                 <tr>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">任务单号 ：</div></td>
+                    <td>{{ obj.si_pid_id }}</td>
+                </tr>
+                <tr>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">样品类型 ：</div></td>
+                    <td>{{ obj.si_spt_id}}</td>
+                </tr>
+                <tr>
                     <td><div class="right, layui-form-item" style="margin-bottom:5px">样品编号 ：</div></td>
                     <td>{{ obj.sample_id }}</td>
                 </tr>
                 <tr>
-                    <td><div class="right, layui-form-item" style="margin-bottom:5px">样品类型 ：</div></td>
-                    <td>{{ obj.stt_id }}</td>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">点位名称 ：</div></td>
+                    <td>{{ obj.sampling_position }}</td>
+                </tr>
+                <tr>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">点位经纬度 ：</div></td>
+                    <td>{{ obj.coordinate }}</td>
                 </tr>
                 <tr>
                     <td><div class="right, layui-form-item" style="margin-bottom:5px">分析项目 ：</div></td>
                     <td>{{ obj.analysis_items }}</td>
                 </tr>
                 <tr>
-                    <td><div class="right, layui-form-item" style="margin-bottom:5px">执行标准 ：</div></td>
-                    <td>{{ obj.standard_limit }}</td>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">采样日期 ：</div></td>
+                    <td>{{ obj.sampling_date }}</td>
                 </tr>
                 <tr>
-                    <td><div class="right, layui-form-item" style="margin-bottom:5px">所属任务单号 ：</div></td>
-                    <td>{{ obj.stp_id }}</td>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">采样频次 ：</div></td>
+                    <td>{{ obj.sampling_of_days }}</td>
+                </tr>
+                <tr>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">样品性状 ：</div></td>
+                    <td>{{ obj.sample_traits }}</td>
+                </tr>
+                <tr>
+                    <td><div class="right, layui-form-item" style="margin-bottom:5px">状态栏 ：</div></td>
+                    <td>{{ obj.status_bar }}</td>
                 </tr>
             </table>
             <hr style="width: 300px;margin-top:20px;">

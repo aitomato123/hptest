@@ -37,17 +37,17 @@ urlpatterns = [
 
     path('fun2_samplehandover/', views.fun2_samplehandover),
     path('fun2_addsamplehandover/', views.fun2_addsamplehandover),
-    path('fun2_editsamplehandover/<str:project_id>/', views.fun2_editsamplehandover),
-    path('fun2_delsamplehandover/', views.fun2_delsamplehandover),
+    path('fun2_editsamplehandover/<str:sample_ids>/', views.fun2_editsamplehandover),
+    path('fun2_delsamplehandover/<str:sample_ids>/', views.fun2_delsamplehandover),
 
-    # path('fun2_sample/', views.fun2_sample),
-    # path('fun2_addsample/', views.fun2_addsample),
-    # path('fun2_editsample/<str:project_id>/', views.fun2_editsample),
-    # path('fun2_delsample/', views.fun2_delsample),
+    path('fun2_sample/', views.fun2_sample),
+    path('fun2_addsample/', views.fun2_addsample),
+    path('fun2_editsample/<str:sample_id>/', views.fun2_editsample),
+    path('fun2_delsample/<str:sample_id>/', views.fun2_delsample),
 
     path('fun21_sampletype/', views.fun21_sampletype),
     path('fun21_addsampletype/', views.fun21_addsampletype),
-    path('fun21_editsampletype/<str:project_id>/', views.fun21_editsampletype),
+    path('fun21_editsampletype/<int:nid>/', views.fun21_editsampletype),
     path('fun21_delsampletype/', views.fun21_delsampletype),
 
     # path('fun3_result/', views.fun3_result),

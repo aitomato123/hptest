@@ -72,21 +72,21 @@ class SampleHandover(models.Model):
        return self.sample_ids
 
 
-# class SampleInfo(models.Model):
-#     project_id = models.ForeignKey(to='ProjInfo', on_delete=CASCADE)
-#     sample_type = models.ForeignKey(to='SampleType', on_delete=CASCADE)
-#     sample_id = models.CharField(max_length=20, unique=True)
-#     sampling_position = models.CharField(max_length=20)
-#     coordinate = models.CharField(max_length=30)
-#     analysis_items = models.CharField(max_length=255)
-#     sampling_date = models.DateField()
-#     sampling_of_days = models.IntegerField()
-#     sample_traits = models.CharField(max_length=50)
-#     status_bar = models.CharField(max_length=2)
-#     def __str__(self):
-#         return self.sample_id
-#
-#
+class SampleInfo(models.Model):
+    si_pid = models.ForeignKey(to='ProjInfo', on_delete=CASCADE)
+    si_spt = models.ForeignKey(to='SampleType', on_delete=CASCADE)
+    sample_id = models.CharField(max_length=20, unique=True)
+    sampling_position = models.CharField(max_length=20)
+    coordinate = models.CharField(max_length=30)
+    analysis_items = models.CharField(max_length=255)
+    sampling_date = models.CharField(max_length=20)
+    sampling_of_days = models.CharField(max_length=2)
+    sample_traits = models.CharField(max_length=50)
+    status_bar = models.CharField(max_length=2)
+    def __str__(self):
+        return self.sample_id
+
+
 class JudgeChoose(models.Model):
     judge = models.CharField(max_length=10, unique=True)
     def __str__(self):
